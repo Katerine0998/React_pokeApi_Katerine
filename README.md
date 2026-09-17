@@ -1,32 +1,23 @@
-# React + TypeScript + Vite
+# React_PokeApi
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+# Materia : Software 1 
 
-Currently, two official plugins are available:
+#  Nombre del proyecto : Pokeapi 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+# Integrantes del equipo : Katerine Pino Zabala 
 
-## React Compiler
+# Descripcion 
+Aplicacion  web desarrollada con React y TypeScript  que consume la PokeApi para mostrar la informacion de distintos  pokemon ; Nombre , imagen , tipo Y otras caracteristicas, El proyecto se realizo como parte del taller de la universitario de la materia , con el objetivo de analizar y comprender como se integra el consumo de la APIs , Manejo de componentes y control de versiones con git y github
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+# Tecnologias 
+-React 
+-TypeScript
+-Vite
+-Git y Github
+-PokeApi (Consumo de los datos)
 
-## Expanding the Oxlint configuration
+# Como ejecutar el proyecto 
+1 Clonar repositorio : 
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+Git clone 
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.

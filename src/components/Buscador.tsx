@@ -11,6 +11,7 @@ interface BuscadorProps {
         value={valor}
         onChange={(e) => onCambiar(e.target.value)}
         className="buscador"
+        aria-label="Buscar Pokémon por nombre"
       />
     );
   }

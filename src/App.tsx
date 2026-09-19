@@ -72,7 +72,12 @@ function App() {
 
       {loading && <EstadoMensaje tipo="cargando" />}
       {!loading && error && (
-  <EstadoMensaje tipo="error" mensaje={error} onReintentar={() => setIntento((i) => i + 1)} />
+  <EstadoMensaje
+    tipo="error"
+    mensaje={error}
+    onReintentar={() => setIntento((i) => i + 1)}
+    reintentando={loading}
+  />
 )}
       {!loading && !error && pokemonesFiltrados.length === 0 && <EstadoMensaje tipo="vacio" />}
       {!loading && !error && pokemonesFiltrados.length > 0 && (

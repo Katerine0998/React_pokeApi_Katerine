@@ -1,23 +1,22 @@
 interface TarjetaPokemonProps {
     nombre: string;
     url: string;
-}
-
-function TarjetaPokemon({nombre , url }: TarjetaPokemonProps){
+    onClick: () => void;
+  }
+  
+  function TarjetaPokemon({ nombre, url, onClick }: TarjetaPokemonProps) {
     const partes = url.split("/").filter(Boolean);
     const id = partes[partes.length - 1];
-    const imagen =  'httpss:///raw.gi.hubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png';
-
+    const imagen = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+  
     return (
-        <div className="tarjeta-pokemon">
-            <img src={imagen} alt={nombre} />
-            <p className="tarjeta-pokemon__numero">#{id}</p>
-            <p className="tarjeta-pokemon__nombre">#{nombre}</p>
-        </div>
-
+      <div className="tarjeta-pokemon" onClick={onClick}>
+        <img src={imagen} alt={nombre} />
+        <p className="tarjeta-pokemon__numero">#{id}</p>
+        <p className="tarjeta-pokemon__nombre">{nombre}</p>
+      </div>
     );
-
-
-}
-export default TarjetaPokemon;
+  }
+  
+  export default TarjetaPokemon;
 

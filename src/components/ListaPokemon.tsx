@@ -3,13 +3,19 @@ import TarjetaPokemon from "./TarjetaPokemon";
 
 interface ListaPokemonProps {
   pokemones: PokemonListItem[];
+  onSeleccionar: (url: string) => void;
 }
 
-function ListaPokemon({ pokemones }: ListaPokemonProps) {
+function ListaPokemon({ pokemones, onSeleccionar }: ListaPokemonProps) {
   return (
     <div className="lista-pokemon">
       {pokemones.map((pokemon) => (
-        <TarjetaPokemon key={pokemon.name} nombre={pokemon.name} url={pokemon.url} />
+        <TarjetaPokemon
+          key={pokemon.name}
+          nombre={pokemon.name}
+          url={pokemon.url}
+          onClick={() => onSeleccionar(pokemon.url)}
+        />
       ))}
     </div>
   );

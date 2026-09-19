@@ -48,3 +48,9 @@
   .estado-mensaje--error {
     color: #c0392b;
   }
+  .subtitulo {
+    color: #666;
+    font-size: 0.95rem;
+    margin-top: -8px;
+    margin-bottom: 16px;
+  }

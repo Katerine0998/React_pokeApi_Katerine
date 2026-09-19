@@ -66,7 +66,8 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Pokédex</h1>
+      <h1>⚪ Pokédex</h1>
+      <p className="subtitulo">Explora, busca y guarda tus Pokémon favoritos</p>
       <p className="contador-favoritos">❤️ Favoritos: {favoritos.length}</p>
       <Buscador valor={busqueda} onCambiar={setBusqueda} />
 

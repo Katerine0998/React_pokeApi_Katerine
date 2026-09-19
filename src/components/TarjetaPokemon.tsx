@@ -16,6 +16,7 @@ interface TarjetaPokemonProps {
     const partes = url.split("/").filter(Boolean);
     const id = partes[partes.length - 1];
     const imagen = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+    const imagenPorDefecto = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/0.png";
   
     return (
       <div className="tarjeta-pokemon">
@@ -30,7 +31,13 @@ interface TarjetaPokemonProps {
         </button>
   
         <div onClick={onClick}>
-          <img src={imagen} alt={nombre} />
+          <img
+            src={imagen}
+            alt={nombre}
+            onError={(e) => {
+              e.currentTarget.src = imagenPorDefecto;
+            }}
+          />
           <p className="tarjeta-pokemon__numero">#{id}</p>
           <p className="tarjeta-pokemon__nombre">{nombre}</p>
         </div>

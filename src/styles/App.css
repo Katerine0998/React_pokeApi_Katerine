@@ -1,0 +1,50 @@
+.app {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px;
+    text-align: center;
+    font-family: sans-serif;
+  }
+  
+  .lista-pokemon {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-top: 24px;
+  }
+  
+  .tarjeta-pokemon {
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    padding: 16px;
+    width: 140px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-transform: capitalize;
+  }
+  
+  .tarjeta-pokemon img {
+    width: 96px;
+    height: 96px;
+  }
+  
+  .tarjeta-pokemon__numero {
+    color: #888;
+    font-size: 0.85rem;
+    margin: 4px 0 0;
+  }
+  
+  .tarjeta-pokemon__nombre {
+    font-weight: bold;
+    margin: 4px 0 0;
+  }
+  
+  .estado-mensaje {
+    margin-top: 40px;
+    font-size: 1.2rem;
+    color: #555;
+  }
+  
+  .estado-mensaje--error {
+    color: #c0392b;
+  }

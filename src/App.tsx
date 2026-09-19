@@ -5,6 +5,7 @@ import ListaPokemon from "./components/ListaPokemon";
 import EstadoMensaje from "./components/EstadoMensaje";
 import Buscador from "./components/Buscador";
 import PokemonDetalle from "./components/PokemonDetalle";
+import { useFavoritos } from "./hooks/useFavoritos";
 import "./styles/App.css";
 
 function App() {
@@ -16,6 +17,10 @@ function App() {
   const [busquedaDebounced, setBusquedaDebounced] = useState("");
 
   const [urlSeleccionada, setUrlSeleccionada] = useState<string | null>(null);
+
+  const { favoritos, esFavorito, alternarFavorito } = useFavoritos();
+
+  const [intento, setIntento] = useState(0);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -37,9 +42,8 @@ function App() {
 
     cargarPokemon();
     return () => controller.abort();
-  }, []);
+  }, [intento]);
 
-  // RF-03: debounce de 400ms
   useEffect(() => {
     const timer = setTimeout(() => {
       setBusquedaDebounced(busqueda);
@@ -63,13 +67,21 @@ function App() {
   return (
     <div className="app">
       <h1>Pokédex</h1>
+      <p className="contador-favoritos">❤️ Favoritos: {favoritos.length}</p>
       <Buscador valor={busqueda} onCambiar={setBusqueda} />
 
       {loading && <EstadoMensaje tipo="cargando" />}
-      {!loading && error && <EstadoMensaje tipo="error" mensaje={error} />}
+      {!loading && error && (
+  <EstadoMensaje tipo="error" mensaje={error} onReintentar={() => setIntento((i) => i + 1)} />
+)}
       {!loading && !error && pokemonesFiltrados.length === 0 && <EstadoMensaje tipo="vacio" />}
       {!loading && !error && pokemonesFiltrados.length > 0 && (
-        <ListaPokemon pokemones={pokemonesFiltrados} onSeleccionar={setUrlSeleccionada} />
+        <ListaPokemon
+          pokemones={pokemonesFiltrados}
+          onSeleccionar={setUrlSeleccionada}
+          esFavorito={esFavorito}
+          onToggleFavorito={alternarFavorito}
+        />
       )}
     </div>
   );
